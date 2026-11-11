@@ -1,0 +1,9 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label": "VAYRO: run API", "type": "process", "command": "go", "args": ["run", "./cmd/api"], "problemMatcher": "$go"},
+    {"label": "VAYRO: run worker", "type": "process", "command": "go", "args": ["run", "./cmd/worker"], "problemMatcher": "$go"},
+    {"label": "VAYRO: test", "type": "process", "command": "go", "args": ["test", "./..."], "group": "test", "problemMatcher": "$go"},
+    {"label": "VAYRO: build", "type": "process", "command": "go", "args": ["build", "./..."], "group": {"kind": "build", "isDefault": true}, "problemMatcher": "$go"}
+  ]
+}

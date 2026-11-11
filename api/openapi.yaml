@@ -1,0 +1,69 @@
+openapi: 3.0.3
+info:
+  title: VAYRO Backend API
+  version: 0.1.0
+  description: >-
+    Initial scaffold. Only health endpoints are implemented. Add business contracts
+    and security schemes as modules are implemented; see api/README.md.
+servers:
+  - url: http://localhost:8080
+paths:
+  /health/live:
+    get:
+      operationId: getLiveness
+      summary: Process liveness, independent of PostgreSQL
+      responses:
+        '200':
+          description: Process is serving HTTP
+          headers:
+            X-Request-ID:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+              example:
+                status: alive
+  /health/ready:
+    get:
+      operationId: getReadiness
+      summary: Database connectivity readiness; does not check future migrations or jobs
+      responses:
+        '200':
+          description: PostgreSQL ping succeeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+              example:
+                status: ready
+        '503':
+          description: Database is unconfigured or unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    Health:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+          enum: [alive, ready]
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message, request_id]
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            request_id:
+              type: string

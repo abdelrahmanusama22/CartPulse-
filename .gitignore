@@ -1,0 +1,19 @@
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Build, coverage and local caches
+/bin/
+/tmp/
+/coverage/
+/vendor/
+*.exe
+*.test
+*.out
+coverage.xml
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*.local.json

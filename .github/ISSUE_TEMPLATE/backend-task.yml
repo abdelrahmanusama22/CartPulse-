@@ -1,0 +1,25 @@
+name: Backend task
+description: Assign a backend implementation task
+title: "[module] "
+body:
+  - type: input
+    id: owner
+    attributes:
+      label: Owner
+      description: Abdulrhman, Waheed, Huda, or Ahmed
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Required behavior and acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Endpoints, schemas, permissions, and dependencies
+  - type: textarea
+    id: validation
+    attributes:
+      label: Test scenarios

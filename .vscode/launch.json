@@ -1,0 +1,7 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {"name": "VAYRO API", "type": "go", "request": "launch", "mode": "auto", "program": "${workspaceFolder}/cmd/api", "cwd": "${workspaceFolder}"},
+    {"name": "VAYRO worker (idle scaffold)", "type": "go", "request": "launch", "mode": "auto", "program": "${workspaceFolder}/cmd/worker", "cwd": "${workspaceFolder}"}
+  ]
+}
